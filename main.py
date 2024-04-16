@@ -19,18 +19,6 @@ import os
 from sklearn.preprocessing import MinMaxScaler
 
 
-
-jsonFile =  None
-def load_and_print_json():
-    global jsonFile
-    try:
-        with open("static/predictions.json", "r") as json_file:
-            data = json.load(json_file)
-            jsonFile = data 
-    except Exception as e:
-        print(f"Failed to read JSON file: {e}")
-
-load_and_print_json()
 app = FastAPI(title="Stock Price Checker API")
 app.add_middleware(
     CORSMiddleware,
