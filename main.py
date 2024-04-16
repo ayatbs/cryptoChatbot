@@ -41,7 +41,7 @@ app.add_middleware(
 )
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+
 llm = ChatOpenAI(temperature=0, model="gpt-4-0125-preview")
 chat_history=[]
 
