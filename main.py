@@ -28,7 +28,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+today = datetime.now().date()
 
 llm = ChatOpenAI(temperature=0, model="gpt-4-0125-preview")
 chat_history=[]
@@ -311,7 +311,7 @@ class StockPricePredictInput(BaseModel):
 
 class StockPricePredictionTool(BaseTool):
     name="predict_price_dynamic"
-    description="a useful tool when it is necessary to accurately predict the future price of a stock, or to calculate how much a user's money can increase over a given period of time. you should input the stock ticker used on the yfinance API"
+    description="a useful tool when it is necessary to accurately predict the future price of a stock, or to calculate how much a user's money can increase over a given period of time. you should input the stock ticker used on the yfinance API. Todays date is {}".format(today)
 
     def _run(self, stockticker: str, predictionDay: int, moving_average_days: int):
       prediction = predict_price_dynamic(stockticker, predictionDay, moving_average_days)
