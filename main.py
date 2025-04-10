@@ -30,7 +30,7 @@ app.add_middleware(
 llm = ChatOpenAI(
     model_name="gpt-4o",
     temperature=0,
-    openai_api_key="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"
+    openai_api_key=openai_api_key  # Use the loaded API key
 )
 
 import json
