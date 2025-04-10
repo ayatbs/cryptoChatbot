@@ -14,6 +14,9 @@ from langchain.tools import BaseTool
 from langchain.agents import initialize_agent, AgentType
 from langchain_openai import ChatOpenAI
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 # Load environment variables (make sure you have a .env file with OPENAI_API_KEY set)
 load_dotenv()
 
