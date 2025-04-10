@@ -20,15 +20,6 @@ from sklearn.preprocessing import MinMaxScaler
 # Load environment variables from .env file
 load_dotenv()
 
-# Optional: Add CORS middleware
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # Or specify your frontend URL
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 # Fetch OPENAI_API_KEY from environment
 openai_api_key = os.getenv("OPENAI_API_KEY")
 if not openai_api_key:
@@ -46,7 +37,7 @@ app.add_middleware(
 
 today = datetime.now().date()
 
-llm = ChatOpenAI(temperature=0, model="gpt-4-0125-preview")
+llm = ChatOpenAI(temperature=0, model="gpt-4-0125-preview", openai_api_key=openai_api_key)
 chat_history=[]
 
 def get_stock_price(symbol: str) -> float:
