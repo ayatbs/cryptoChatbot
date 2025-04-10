@@ -17,9 +17,6 @@ from langchain_openai import ChatOpenAI
 # Load environment variables (make sure you have a .env file with OPENAI_API_KEY set)
 load_dotenv()
 
-# Initialize the FastAPI app
-app = FastAPI()
-
 # Optional: Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
